@@ -96,7 +96,7 @@ ENV BUILD="${BUILD}" \
     TZ="Europe/Berlin"
 
 # Default admin ui port
-EXPOSE 8081
+EXPOSE 8081 8082 8093
 
 # Change work dir
 WORKDIR /opt/iobroker/
@@ -106,7 +106,7 @@ HEALTHCHECK --interval=15s --timeout=5s --retries=5 \
     CMD ["/bin/bash", "-c", "/opt/scripts/healthcheck.sh"]
 
 # Volume for persistent data
-VOLUME ["/opt/iobroker"]
+# VOLUME ["/opt/iobroker"]
 
 # Run startup-script
 ENTRYPOINT ["/bin/bash", "-c", "/opt/scripts/iobroker_startup.sh"]
